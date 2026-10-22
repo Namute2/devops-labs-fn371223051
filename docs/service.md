@@ -10,11 +10,11 @@ TODO: two or three sentences: what the service does and for whom. / две-тр�
 
 | Method | Path | What it does / Какво прави |
 |---|---|---|
-| GET | /health | TODO |
-| GET | /version | TODO |
-| GET | /notes | TODO |
-| POST | /notes | TODO |
-| GET | /notes/{id} | TODO |
+| GET | /health | Reports whether the service is running and able to handle requests. |
+| GET | /version | Returns the version of the running service. |
+| GET | /notes | Returns the list of all stored notes. |
+| POST | /notes | Creates a new note from the request body and returns it. |
+| GET | /notes/{id} | Returns the single note with the given id, or an error if it does not exist. |
 
 ## Dependencies / Зависимости
 
