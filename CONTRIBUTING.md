@@ -58,6 +58,14 @@ fix: return 404 for a missing note
 
 ## Branching strategy: proposal by Namute2
 
-   **Proposal: GitHub Flow.** `main` is always deployable; every change is a short-lived branch merged by pull request after review.
+**Proposal: GitHub Flow.** `main` is always deployable; every change is a short-lived branch merged by pull request after review.
 
-   **Why:** it matches the rules we already wrote (branch per change, PR with review), it is easy to learn, and it works well with a pipeline that deploys from `main`.
+**Why:** it matches the rules we already wrote (branch per change, PR with review), it is easy to learn, and it works well with a pipeline that deploys from `main`.
+
+## Branching strategy: proposal by State-prop
+
+**Proposal: trunk-based development.** Very small changes go to `main` often, with automated checks on every change.
+
+**Why:** fewer long-lived branches means fewer conflicts, and it fits continuous integration.
+
+Branching strategy: GitHub Flow
