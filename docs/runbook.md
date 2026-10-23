@@ -14,18 +14,18 @@ pip install -r requirements-dev.txt
 uvicorn app.main:app --reload
 ```
 
-The app runs at http://127.0.0.1:8000. Without `DATABASE_URL`, notes are kept in memory and lost on restart.
+The app runs at http://127.0.0.1:9000. Without `DATABASE_URL`, notes are kept in memory and lost on restart.
 
 ## Check that it works / Проверка, че работи
 
 Which address do you open and what should you see? / кой адрес отваряте и какво трябва да видите?
 
-Open http://127.0.0.1:8000/docs. You should see the generated API documentation page listing the endpoints.
+Open http://127.0.0.1:9000/docs. You should see the generated API documentation page listing the endpoints.
 
 Or check from the terminal:
 
 ```bash
-curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:9000/health
 ```
 
 Expected: `{"status": "ok"}`
@@ -43,6 +43,6 @@ ruff check .
 
 The first three things you check. / първите три неща, които проверявате.
 
-1. Check the health endpoints: `curl -i http://127.0.0.1:8000/health` should return 200 with `{"status": "ok"}`, and `curl -i http://127.0.0.1:8000/ready` should not return 503 (503 means the database cannot be reached, so check `DATABASE_URL` and that PostgreSQL is running).
+1. Check the health endpoints: `curl -i http://127.0.0.1:9000/health` should return 200 with `{"status": "ok"}`, and `curl -i http://127.0.0.1:9000/ready` should not return 503 (503 means the database cannot be reached, so check `DATABASE_URL` and that PostgreSQL is running).
 2. Check the environment: run `python --version` (must be 3.12), make sure the virtualenv is active with `source .venv/bin/activate`, and reinstall with `pip install -r requirements-dev.txt`.
-3. Check the port and the logs: read the first error in the terminal running `uvicorn`. If port 8000 is taken, find the process with `lsof -i :8000`, or start on another port with `uvicorn app.main:app --reload --port 8001`.
+3. Check the port and the logs: read the first error in the terminal running `uvicorn`. If port 9000 is taken, find the process with `lsof -i :9000`, or start on another port with `uvicorn app.main:app --reload --port 9001`.
