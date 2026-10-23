@@ -56,4 +56,8 @@ fix: return 404 for a missing note
 - Answer review comments by pushing new commits or replying; resolve a conversation only after it is addressed.
 - Delete the branch after it is merged.
 
-Branching strategy: TBD
+## Branching strategy: proposal by Namute2
+
+   **Proposal: GitHub Flow.** `main` is always deployable; every change is a short-lived branch merged by pull request after review.
+
+   **Why:** it matches the rules we already wrote (branch per change, PR with review), it is easy to learn, and it works well with a pipeline that deploys from `main`.
