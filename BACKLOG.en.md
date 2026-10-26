@@ -40,7 +40,7 @@ The second PR in each pair of tasks will have a conflict. You resolve it **local
 
 ## Sprint 4: release (10 min)
 
-- **T15.** In `CHANGELOG.md` "Unreleased" becomes "0.2.0" (through a PR). Close the `v0.2.0` milestone. A release with tag `v0.2.0` and **Generate release notes**.
+docker rm -f web 
 
 ## Bonus (if there is time)
 
