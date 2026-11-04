@@ -84,3 +84,51 @@ Stop and remove:
 docker stop notes
 docker rm notes
 ```
+
+## Run with Compose
+
+Create the settings file once (it is not committed):
+
+```
+cp .env.example .env
+```
+
+Then edit `.env` and set a real `POSTGRES_PASSWORD`.
+
+Start everything (builds the image if needed):
+
+```
+docker compose up -d --build
+```
+
+See what is running (the database must be `healthy`):
+
+```
+docker compose ps
+```
+
+Logs:
+
+```
+docker compose logs -f app
+```
+
+Stop:
+
+```
+docker compose down
+```
+
+Stop and delete the data:
+
+```
+docker compose down -v
+```
+
+`down` removes the containers and the network but keeps the named volume, so the notes in PostgreSQL survive the next `up`. `down -v` also removes the volume, so all notes are deleted.
+
+Optional tools (Adminer on port 8081):
+
+```
+docker compose --profile tools up -d
+```

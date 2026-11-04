@@ -1,6 +1,6 @@
 # NNNN. Title / Заглавие
 
-**Status / Статус:** Proposed
+**Status / Статус:** Accepted
 
 ## Context / Контекст
 
