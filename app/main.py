@@ -42,7 +42,7 @@ Model = Annotated[Classifier | None, Depends(get_classifier)]
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "okay"}
+    return {"status": "ok"}
 
 
 @app.get("/ready")
