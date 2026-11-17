@@ -66,7 +66,7 @@ jobs:
             docker tag "$IMAGE:${{ github.sha }}" "$IMAGE:${{ github.ref_name }}"
             docker push "$IMAGE:${{ github.ref_name }}"
           fi
- docs:
+  docs:
     needs: test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
