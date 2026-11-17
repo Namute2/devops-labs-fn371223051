@@ -68,10 +68,10 @@ jobs:
           fi
   docs:
     needs: test
-    if: github.ref == 'refs/heads/main'
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-24.04
     permissions:
-      contents: read
+
       pages: write
       id-token: write
     environment:
