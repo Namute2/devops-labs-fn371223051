@@ -65,4 +65,28 @@ jobs:
           if [ "${{ github.ref_type }}" = "tag" ]; then
             docker tag "$IMAGE:${{ github.sha }}" "$IMAGE:${{ github.ref_name }}"
             docker push "$IMAGE:${{ github.ref_name }}"
+    
           fi
+ docs:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-docs.txt
+      - run: mkdocs build --strict
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v5
