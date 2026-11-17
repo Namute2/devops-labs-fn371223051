@@ -46,6 +46,13 @@ jobs:
           docker run -d --name app -p 8000:8000 "$IMAGE:${{ github.sha }}"
           for _ in $(seq 1 20); do curl -fs localhost:8000/health && exit 0; sleep 1; done
           docker logs app; exit 1
+      - name: Scan for vulnerabilities
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: ${{ env.IMAGE }}:${{ github.sha }}
+          severity: CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
       - name: Push to GitHub Container Registry
         if: github.event_name == 'push'
         run: |
