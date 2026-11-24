@@ -17,3 +17,13 @@ spec:
           image: ghcr.io/namute2/devops-labs-fn371223051:v0.6.0
           ports:
             - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notes
+spec:
+  selector:
+    app: notes
+  ports:
+    - port: 8000
