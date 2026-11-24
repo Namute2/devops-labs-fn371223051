@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notes
+  template:
+    metadata:
+      labels:
+        app: notes
+    spec:
+      containers:
+        - name: notes
+          image: ghcr.io/namute2/devops-labs-fn371223051:v0.6.0
+          ports:
+            - containerPort: 8000
