@@ -10,7 +10,7 @@ kind: Deployment
 metadata:
   name: notes
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: notes
